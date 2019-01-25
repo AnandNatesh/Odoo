@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+
+<record id="delivery_mail_form_view" model="ir.ui.view">
+    <field name="name">delivery</field>
+    <field name="model">mail.delivery</field>
+    <field name="arch" type="xml">
+        <form string="Delivery">
+            <header>
+                <button name="send_delivery_mail" string="Send Mail" type="object" class="oe_highlight"/>
+            </header>
+            <sheet>
+                <group>
+                    <field name="sale_order_id"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+      <record id="delivery_mail_tree_view" model="ir.ui.view">
+            <field name="name">Delivery Tree</field>
+            <field name="model">mail.delivery</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="sale_order_id"/>
+                </tree>
+            </field>
+        </record>
+
+ <record id="mail_delivery_action" model="ir.actions.act_window">
+            <field name="name">Mail Delivery</field>
+            <field name="res_model">mail.delivery</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+     <menuitem id="mail_details"
+                  name="Delivery Mail"
+                  action ="mail_delivery_action"
+
+
+                  sequence="18"/>
+
+    </odoo>
